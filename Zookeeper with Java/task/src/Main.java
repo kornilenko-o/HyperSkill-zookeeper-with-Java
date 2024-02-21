@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -125,18 +123,17 @@ public class Main {
             (" ~----( ~   Y.  )
             It looks like we will soon have more rabbits!""";
 
+        String[] animals = {camel, lion, deer, goose, bat, rabbit};
         Scanner scanner = new Scanner(System.in);
-        List<String> habitatList = new ArrayList<>();
-        habitatList.add(camel);
-        habitatList.add(lion);
-        habitatList.add(deer);
-        habitatList.add(goose);
-        habitatList.add(bat);
-        habitatList.add(rabbit);
 
-        System.out.print("Please enter the number of the habitat you would like to view: ");
-        System.out.println(habitatList.get(scanner.nextInt()));
-        System.out.println("---\nYou've reached the end of the program. To check another habitat, please restart the watcher.");
-
+        while (true){
+            System.out.print("Please enter the number of the habitat you would like to view: ");
+            String input = scanner.nextLine();
+            if(input.trim().equalsIgnoreCase("exit")){
+                break;
+            }
+            System.out.println(animals[Integer.parseInt(input)]);
+        }
+        System.out.println("See you later!");
     }
 }
